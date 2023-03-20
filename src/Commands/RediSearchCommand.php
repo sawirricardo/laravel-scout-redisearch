@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Sawirricardo\Laravel\Scout\RediSearch\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class RediSearchCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-scout-redisearch';
 
     public $description = 'My command';
 

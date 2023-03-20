@@ -1,24 +1,28 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "sawirricardo/laravel-scout-redisearch",
+    "description": "Laravel's Scout engine for RediSearch",
     "keywords": [
-        ":vendor_name",
+        "sawirricardo",
         "laravel",
-        ":package_slug"
+        "laravel-scout-redisearch"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/sawirricardo/laravel-scout-redisearch",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "sawirricardo",
+            "email": "sawir.ricardo@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
-        "spatie/laravel-package-tools": "^1.14.0",
-        "illuminate/contracts": "^10.0"
+        "doctrine/dbal": "^3.6",
+        "ethanhann/redis-raw": "^2.1",
+        "ethanhann/redisearch-php": "^0.7.0",
+        "illuminate/contracts": "^10.0",
+        "laravel/scout": "^10.0",
+        "spatie/laravel-package-tools": "^1.14.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
@@ -30,18 +34,17 @@
         "pestphp/pest-plugin-laravel": "^2.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^1.0",
-        "phpstan/phpstan-phpunit": "^1.0",
-        "spatie/laravel-ray": "^1.26"
+        "phpstan/phpstan-phpunit": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Sawirricardo\\Laravel\\Scout\\RediSearch\\": "src/",
+            "Sawirricardo\\Laravel\\Scout\\RediSearch\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Sawirricardo\\Laravel\\Scout\\RediSearch\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -61,10 +64,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Sawirricardo\\Laravel\\Scout\\RediSearch\\RediSearchServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "RediSearch": "Sawirricardo\\Laravel\\Scout\\RediSearch\\Facades\\RediSearch"
             }
         }
     },
