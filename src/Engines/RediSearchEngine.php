@@ -37,7 +37,7 @@ class RediSearchEngine extends Engine
         }
         $model = $models->first();
 
-        $index = new Index($this->rediSearch, $model->searchableAs());
+        $index = $this->createIndex($model->searchableAs());
 
         foreach ($model->searchableSchema() as $name => $schema) {
             $indexFunc = data_get([
@@ -75,7 +75,7 @@ class RediSearchEngine extends Engine
             return;
         }
 
-        $index = new Index($this->rediSearch, $models->first()->searchableAs());
+        $index = $this->createIndex($models->first()->searchableAs());
 
         $keys = $models instanceof RemoveableScoutCollection
             ? $models->pluck($models->first()->getScoutKeyName())
@@ -88,7 +88,7 @@ class RediSearchEngine extends Engine
 
     public function search(Builder $builder)
     {
-        $index = new Index(
+        $index = $this->createIndex(
             $builder->index ?: $builder->model->searchableAs()
         );
 
@@ -102,7 +102,7 @@ class RediSearchEngine extends Engine
 
     public function paginate(Builder $builder, $perPage, $page)
     {
-        $index = new Index($this->rediSearch, $builder->index ?: $builder->model->searchableAs());
+        $index = $this->createIndex($builder->index ?: $builder->model->searchableAs());
 
         if ($builder->callback) {
             return collect(
